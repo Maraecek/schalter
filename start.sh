@@ -1,5 +1,8 @@
 #!/bin/sh
 
+
+#screen -S schalter -d -m /var/www/schalter/start.sh
+
 cd /var/www/schalter/
 while true;
 do
