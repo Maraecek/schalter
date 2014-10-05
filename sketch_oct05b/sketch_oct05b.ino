@@ -45,11 +45,11 @@ void setup()
   //load from server or eeprom
   Serial.begin(9600);
 
-  Serial.println("[");    
-  Serial.println("\"USB 2 Serial Interface\",");
-  Serial.println("\"======================\",");
-  Serial.println("\"Version 2\",");
-  Serial.println("\"(C) by Ronny Adams 2014\"");
+  Serial.print("[");    
+  Serial.print("\"USB 2 Serial Interface\",");
+  Serial.print("\"======================\",");
+  Serial.print("\"Version 2\",");
+  Serial.print("\"(C) by Ronny Adams 2014\"");
   Serial.println("]");
 }
 
