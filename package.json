@@ -1,5 +1,12 @@
 {
+  "name": "schalter",
+  "private": true,
+  "version": "0.0.2",
+  "description": "controls arudino over usb2serial",
+  "repository": "https://github.com/werty1st/schalter",
+  "license": "GPLv3",
   "dependencies": {
+    "arduino-firmata": "^0.3.2",
     "serialport": "^1.4.6"
   }
 }

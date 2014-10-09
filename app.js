@@ -24,28 +24,13 @@ serialPort.on("open", function () {
 });
 
 serialPort.on("close", function () {
-
 	console.log("conncetion lost");
 	process.exit(1);
-
-
 });
 
 serialPort.on("error", function () {
-
 	console.log("conncetion lost");
 	process.exit(1);
-
-
 });
 
 
-setInterval(function(){
-	serialPort.write("{\"com\":\"get\"}", function(err, data) {
-		if (!err){
-			if (data == 13){
-				console.log("OK");
-			}
-		}
-	});
-},2000);
