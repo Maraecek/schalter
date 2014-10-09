@@ -2,7 +2,7 @@ var ArduinoFirmata = require('arduino-firmata');
 var arduino = new ArduinoFirmata();
 
 arduino.connect('/dev/ttyUSB0');
-
+//geht nur mit SimpleDigitalFirmata.ino
 
 var led6 = false;
 
