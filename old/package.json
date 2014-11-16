@@ -6,8 +6,7 @@
   "repository": "https://github.com/werty1st/schalter",
   "license": "GPLv3",
   "dependencies": {
-    "express": "^4.9.7",
-    "http": "0.0.0",
-    "net": "^1.0.2"
+    "arduino-firmata": "^0.3.2",
+    "serialport": "^1.4.6"
   }
 }
