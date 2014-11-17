@@ -48,6 +48,16 @@ function sendRequest($req, $respNeeded) {
 	}
 }
 
+function socket_result($data)
+{
+	echo "baba";
+}
+
+$_REQUEST = array("function" => "attachUUGearDevice",
+				  "paramValue1" => "UUGear-Arduino-3606-9222",
+				  "callback" => "socket_result");
+
+
 if (isset($_REQUEST['function'])) {
 	
 	$function = $functionMap[$_REQUEST['function']];
@@ -78,6 +88,7 @@ if (isset($_REQUEST['function'])) {
 			}
 		}
 		
+		var_dump($request); exit;
 		if (!$missParam) {
 			sendRequest($request, $function['return'] != DATA_TYPE_VOID);
 		}

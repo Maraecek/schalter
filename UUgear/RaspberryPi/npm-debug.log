@@ -1,0 +1,111 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink /usr/bin/node
+5 warn package.json @ No description
+6 warn package.json @ No repository field.
+7 warn package.json @ No README data
+8 verbose readDependencies using package.json deps
+9 verbose install where, deps [ '/home/ronny/git_managed_projects/schalter/UUgear/RaspberryPi',
+9 verbose install   [ 'ffi', 'ref', 'ref-struct' ] ]
+10 info preinstall @
+11 verbose readDependencies using package.json deps
+12 verbose cache add [ 'ffi@^0.5.7', null ]
+13 verbose cache add name=undefined spec="ffi@^0.5.7" args=["ffi@^0.5.7",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'ffi@^0.5.7',
+14 verbose parsed url   path: 'ffi@^0.5.7',
+14 verbose parsed url   href: 'ffi@^0.5.7' }
+15 verbose already installed skipping ref@^0.3.2 /home/ronny/git_managed_projects/schalter/UUgear/RaspberryPi
+16 verbose already installed skipping ref-struct@^1.0.0 /home/ronny/git_managed_projects/schalter/UUgear/RaspberryPi
+17 verbose cache add name="ffi" spec="^0.5.7" args=["ffi","^0.5.7"]
+18 verbose parsed url { protocol: null,
+18 verbose parsed url   slashes: null,
+18 verbose parsed url   auth: null,
+18 verbose parsed url   host: null,
+18 verbose parsed url   port: null,
+18 verbose parsed url   hostname: null,
+18 verbose parsed url   hash: null,
+18 verbose parsed url   search: null,
+18 verbose parsed url   query: null,
+18 verbose parsed url   pathname: '^0.5.7',
+18 verbose parsed url   path: '^0.5.7',
+18 verbose parsed url   href: '^0.5.7' }
+19 verbose addNamed [ 'ffi', '^0.5.7' ]
+20 verbose addNamed [ null, '>=0.5.7-0 <0.6.0-0' ]
+21 silly lockFile 7bec55ea-ffi-0-5-7 ffi@^0.5.7
+22 verbose lock ffi@^0.5.7 /home/ronny/.npm/7bec55ea-ffi-0-5-7.lock
+23 silly addNameRange { name: 'ffi', range: '>=0.5.7-0 <0.6.0-0', hasData: false }
+24 verbose request where is /ffi
+25 verbose request registry https://registry.npmjs.org/
+26 verbose request id 72eae6bc7d89e975
+27 verbose url raw /ffi
+28 verbose url resolving [ 'https://registry.npmjs.org/', './ffi' ]
+29 verbose url resolved https://registry.npmjs.org/ffi
+30 verbose request where is https://registry.npmjs.org/ffi
+31 info trying registry request attempt 1 at 23:09:31
+32 http GET https://registry.npmjs.org/ffi
+33 http 200 https://registry.npmjs.org/ffi
+34 silly registry.get cb [ 200,
+34 silly registry.get   { date: 'Mon, 17 Nov 2014 22:09:32 GMT',
+34 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+34 silly registry.get     etag: '"198JIRTWPPX30UU4SI7X7TSS6"',
+34 silly registry.get     'content-type': 'application/json',
+34 silly registry.get     'cache-control': 'max-age=60',
+34 silly registry.get     'content-length': '24255',
+34 silly registry.get     'accept-ranges': 'bytes',
+34 silly registry.get     via: '1.1 varnish',
+34 silly registry.get     age: '0',
+34 silly registry.get     'x-served-by': 'cache-fra1231-FRA',
+34 silly registry.get     'x-cache': 'MISS',
+34 silly registry.get     'x-cache-hits': '0',
+34 silly registry.get     'x-timer': 'S1416262172.044808,VS0,VE715',
+34 silly registry.get     vary: 'Accept',
+34 silly registry.get     'keep-alive': 'timeout=10, max=50',
+34 silly registry.get     connection: 'Keep-Alive' } ]
+35 silly addNameRange number 2 { name: 'ffi', range: '>=0.5.7-0 <0.6.0-0', hasData: true }
+36 silly addNameRange versions [ 'ffi',
+36 silly addNameRange   [ '1.0.0',
+36 silly addNameRange     '1.0.1',
+36 silly addNameRange     '1.0.3',
+36 silly addNameRange     '1.0.4',
+36 silly addNameRange     '1.0.5',
+36 silly addNameRange     '1.0.6',
+36 silly addNameRange     '1.0.7',
+36 silly addNameRange     '1.1.0',
+36 silly addNameRange     '1.1.1',
+36 silly addNameRange     '1.1.2',
+36 silly addNameRange     '1.1.3',
+36 silly addNameRange     '1.2.0',
+36 silly addNameRange     '1.2.1',
+36 silly addNameRange     '1.2.2',
+36 silly addNameRange     '1.2.3',
+36 silly addNameRange     '1.2.4',
+36 silly addNameRange     '1.2.5',
+36 silly addNameRange     '1.2.6',
+36 silly addNameRange     '1.2.7' ] ]
+37 silly lockFile 7bec55ea-ffi-0-5-7 ffi@^0.5.7
+38 silly lockFile 7bec55ea-ffi-0-5-7 ffi@^0.5.7
+39 error notarget No compatible version found: ffi@'>=0.5.7-0 <0.6.0-0'
+39 error notarget Valid install targets:
+39 error notarget ["1.0.0","1.0.1","1.0.3","1.0.4","1.0.5","1.0.6","1.0.7","1.1.0","1.1.1","1.1.2","1.1.3","1.2.0","1.2.1","1.2.2","1.2.3","1.2.4","1.2.5","1.2.6","1.2.7"]
+39 error notarget
+39 error notarget This is most likely not a problem with npm itself.
+39 error notarget In most cases you or one of your dependencies are requesting
+39 error notarget a package version that doesn't exist.
+40 error System Linux 3.13.11-03131102-generic
+41 error command "/usr/bin/node" "/usr/bin/npm" "install"
+42 error cwd /home/ronny/git_managed_projects/schalter/UUgear/RaspberryPi
+43 error node -v v0.10.33
+44 error npm -v 1.4.28
+45 error code ETARGET
+46 verbose exit [ 1, true ]
