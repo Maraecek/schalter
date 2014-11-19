@@ -194,27 +194,24 @@ var pin2time = new Date().getTime();
 
 function tor(mode)
 {
-	if (pin2time+200 < new Date().getTime()){
-		//nur ändern wenn lang enug her
-		pin2time = new Date().getTime();	
-			
-		if (mode){
-			console.log("Tor aus");
-			UUGearRequest({
-				func : "setPinHigh",
-				paramValue1 : "UUGear-Arduino-1325-7161",
-				paramValue2 : 6
-			});	
-		} else {
-			console.log("Tor an");
-			UUGearRequest({
-				func : "setPinLow",
-				paramValue1 : "UUGear-Arduino-1325-7161",
-				paramValue2 : 6
-			});	
-			
-		}
+
+	if (!mode){
+		console.log("LED aus");
+		UUGearRequest({
+			func : "setPinHigh",
+			paramValue1 : "UUGear-Arduino-1325-7161",
+			paramValue2 : 6
+		});	
+	} else {
+		console.log("LED an");
+		UUGearRequest({
+			func : "setPinLow",
+			paramValue1 : "UUGear-Arduino-1325-7161",
+			paramValue2 : 6
+		});	
+		
 	}
+	
 }
 
 setInterval(function()
@@ -226,9 +223,14 @@ setInterval(function()
 		callback : function(pinmode){
 			//console.log("pinmode",pinmode);
 			if (pinmode == 0){
-				pin2 = !pin2;
+				if (pin2time+100 < new Date().getTime()){
+					
+					pin2 = !pin2;
+					tor(pin2);
+				}
+				//verhindert wechsel bei gedrückthalten
+				pin2time = new Date().getTime();
 				//console.log("pin2",pin2);
-				tor(pin2);
 			}
 		}
 	});
