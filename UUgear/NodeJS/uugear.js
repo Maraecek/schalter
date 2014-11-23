@@ -1,5 +1,6 @@
 var net = require('net');
 var pack = require('hipack').pack;
+//var Promise = require('promise');
 
 var DATA_TYPE_VOID 		= 0x01;
 var DATA_TYPE_STRING 	= 0x02;
@@ -11,21 +12,18 @@ var functionMap = {
 	'attachUUGearDevice' : { 'request' : 1, 	'return' : DATA_TYPE_INTEGER, 	'paramCount' : 1, 'paramType1' : DATA_TYPE_STRING },
 	'detachUUGearDevice' : { 'request' : 2,	  	'return' : DATA_TYPE_VOID,		'paramCount' : 1, 'paramType1' : DATA_TYPE_STRING },
 	'resetUUGearDevice'	 : { 'request' : 217, 	'return' : DATA_TYPE_VOID,		'paramCount' : 1, 'paramType1' : DATA_TYPE_STRING },	
-
 	'setPinModeAsInput'	 : { 'request' : 10,	'return' : DATA_TYPE_VOID,		'paramCount' : 2, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER },
 	'setPinModeAsOutput' : { 'request' : 11,	'return' : DATA_TYPE_VOID,		'paramCount' : 2, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER },
 	'setPinLow'			 : { 'request' : 12,	'return' : DATA_TYPE_VOID,		'paramCount' : 2, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER },	
 	'setPinHigh'		 : { 'request' : 13,	'return' : DATA_TYPE_VOID,		'paramCount' : 2, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER },
-	'getPinStatus'		 : { 'request' : 14,	'return' : DATA_TYPE_INTEGER,	'paramCount' : 2, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER },
-
-	'analogWrite'		 : { 'request' : 15,	'return' : DATA_TYPE_VOID,		'paramCount' : 3, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER, 'paramType3' : DATA_TYPE_INTEGER },
-	'analogRead'		 : { 'request' : 16,	'return' : DATA_TYPE_INTEGER,	'paramCount' : 2, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER },
-	'analogReference'	 : { 'request' : 17,	'return' : DATA_TYPE_VOID,		'paramCount' : 2, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER }
+	'getPinStatus'		 : { 'request' : 14,	'return' : DATA_TYPE_INTEGER,	'paramCount' : 2, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER }
+	// 'analogWrite'		 : { 'request' : 15,	'return' : DATA_TYPE_VOID,		'paramCount' : 3, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER, 'paramType3' : DATA_TYPE_INTEGER },
+	// 'analogRead'		 : { 'request' : 16,	'return' : DATA_TYPE_INTEGER,	'paramCount' : 2, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER },
+	// 'analogReference'	 : { 'request' : 17,	'return' : DATA_TYPE_VOID,		'paramCount' : 2, 'paramType1' : DATA_TYPE_STRING, 'paramType2' : DATA_TYPE_INTEGER }
 }
 
 function UUGearRequest(myrequest)
 {
-
 	function sendRequest(req, respNeeded, done) {
 	    var resp = '';
 	    var timeout = 10*1000;
@@ -68,7 +66,7 @@ function UUGearRequest(myrequest)
 
 			socketclient.on('data', function(data) {
 		    	//console.log('socket data',data.toString());    	
-				socketclient.end();
+				//socketclient.end();
 				if (typeof respNeeded == "function") {
 			    	//console.log('socket data callback');    	
 				    respNeeded(data.toString());
@@ -119,16 +117,10 @@ function UUGearRequest(myrequest)
 }
 
 
-
-
-
-
 function UUGearDevice(_deviceID){
 	//setup dependend services: killall UUGearDaemon; ./UUGearDaemon; ./SocketBroker
 	var deviceID = _deviceID;
 	var connected = false;
-
-
 
 	return {
 
@@ -141,6 +133,15 @@ function UUGearDevice(_deviceID){
 			});	
 		},
 
+		getPinStatus : function(pin, callback, done){
+			UUGearRequest({
+				func : "getPinStatus",
+				paramValue1 : deviceID,
+				paramValue2 : pin,
+				callback: callback,				
+				done: done
+			});		
+		},
 
 		setPinLow : function(pin, done){
 			UUGearRequest({
